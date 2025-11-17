@@ -9,6 +9,20 @@ type Mesh struct {
 	Triangles []Triangle
 }
 
+func (m *Mesh) Merge(o Mesh) {
+	vertexOffset := uint32(len(m.Vertices))
+	m.Vertices = append(m.Vertices, o.Vertices...)
+	newTris := make([]Triangle, len(o.Triangles))
+	for i, t := range o.Triangles {
+		var newIndices [3]uint32
+		for k, v := range t.Indices {
+			newIndices[k] = v + vertexOffset
+		}
+		newTris[i] = Triangle{Indices: newIndices}
+	}
+	m.Triangles = append(m.Triangles, newTris...)
+}
+
 type Triangle struct {
 	Indices [3]uint32
 }
