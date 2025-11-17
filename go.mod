@@ -1,4 +1,4 @@
-module opal
+module github.com/rnbw-labs/opal
 
 go 1.25.4
 

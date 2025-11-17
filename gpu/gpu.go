@@ -2,7 +2,7 @@ package gpu
 
 import (
 	"github.com/go-gl/gl/v4.6-core/gl"
-	"opal/cpu"
+	"github.com/rnbw-labs/opal/cpu"
 )
 
 func UploadMesh(uploading cpu.Mesh) *Mesh {

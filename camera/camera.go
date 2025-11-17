@@ -1,8 +1,8 @@
 package camera
 
 import (
+	render_math "github.com/rnbw-labs/opal/render_math"
 	"math"
-	render_math "opal/render_math"
 )
 
 // The Camera interface is used for rendering to

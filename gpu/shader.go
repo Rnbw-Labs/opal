@@ -3,7 +3,7 @@ package gpu
 import (
 	"fmt"
 	"github.com/go-gl/gl/v4.6-core/gl"
-	"opal/render_math"
+	"github.com/rnbw-labs/opal/render_math"
 )
 
 type Shader struct {

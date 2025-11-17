@@ -1,9 +1,9 @@
 package renderer
 
 import (
-	"opal/camera"
-	"opal/gpu"
-	"opal/render_math"
+	"github.com/rnbw-labs/opal/camera"
+	"github.com/rnbw-labs/opal/gpu"
+	"github.com/rnbw-labs/opal/render_math"
 )
 
 type Renderer struct {

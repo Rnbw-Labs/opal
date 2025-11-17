@@ -1,12 +1,12 @@
 package main
 
 import (
-	"opal/camera"
-	"opal/cpu"
-	gpu "opal/gpu"
-	"opal/render_math"
-	"opal/renderer"
-	"opal/window"
+	"github.com/rnbw-labs/opal/camera"
+	"github.com/rnbw-labs/opal/cpu"
+	gpu "github.com/rnbw-labs/opal/gpu"
+	"github.com/rnbw-labs/opal/render_math"
+	"github.com/rnbw-labs/opal/renderer"
+	"github.com/rnbw-labs/opal/window"
 	"os"
 )
 

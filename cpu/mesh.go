@@ -1,7 +1,7 @@
 package cpu
 
 import (
-	"opal/render_math"
+	"github.com/rnbw-labs/opal/render_math"
 )
 
 type Mesh struct {
