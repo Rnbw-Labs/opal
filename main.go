@@ -3,8 +3,8 @@ package main
 import (
 	"github.com/rnbw-labs/opal/camera"
 	"github.com/rnbw-labs/opal/cpu"
+	"github.com/rnbw-labs/opal/gmath"
 	gpu "github.com/rnbw-labs/opal/gpu"
-	"github.com/rnbw-labs/opal/render_math"
 	"github.com/rnbw-labs/opal/renderer"
 	"github.com/rnbw-labs/opal/window"
 	"os"
@@ -53,7 +53,7 @@ func main() {
 		// Wipe window clear
 		gameWindow.Clear()
 		// Draw my stuff to it
-		myRenderer.DrawMesh(*gpuMesh, shader, *gpuTexture, render_math.Translate(render_math.Vector3{}))
+		myRenderer.DrawMesh(*gpuMesh, shader, *gpuTexture, gmath.Translate(gmath.Vector3{}))
 		// Swap
 		input := gameWindow.Swap()
 		if input.Pushing("W") {

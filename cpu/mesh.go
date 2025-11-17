@@ -1,7 +1,7 @@
 package cpu
 
 import (
-	"github.com/rnbw-labs/opal/render_math"
+	"github.com/rnbw-labs/opal/gmath"
 )
 
 type Mesh struct {
@@ -28,9 +28,9 @@ type Triangle struct {
 }
 
 type Vertex struct {
-	Position render_math.Vector3
-	Normal   render_math.Vector3
-	UV       render_math.Vector2
+	Position gmath.Vector3
+	Normal   gmath.Vector3
+	UV       gmath.Vector2
 }
 
 func (v Vertex) Unpack() []float32 {
@@ -47,40 +47,40 @@ func CubeMesh(size float32) *Mesh {
 	// 6 faces, each with its own 4 vertices (for correct normals + UVs)
 	vertices := []Vertex{
 		// Front face (+Z)
-		{Position: render_math.Vector3{-h, -h, h}, Normal: render_math.Vector3{0, 0, 1}, UV: render_math.Vector2{0, 0}},
-		{Position: render_math.Vector3{h, -h, h}, Normal: render_math.Vector3{0, 0, 1}, UV: render_math.Vector2{1, 0}},
-		{Position: render_math.Vector3{h, h, h}, Normal: render_math.Vector3{0, 0, 1}, UV: render_math.Vector2{1, 1}},
-		{Position: render_math.Vector3{-h, h, h}, Normal: render_math.Vector3{0, 0, 1}, UV: render_math.Vector2{0, 1}},
+		{Position: gmath.Vector3{-h, -h, h}, Normal: gmath.Vector3{0, 0, 1}, UV: gmath.Vector2{0, 0}},
+		{Position: gmath.Vector3{h, -h, h}, Normal: gmath.Vector3{0, 0, 1}, UV: gmath.Vector2{1, 0}},
+		{Position: gmath.Vector3{h, h, h}, Normal: gmath.Vector3{0, 0, 1}, UV: gmath.Vector2{1, 1}},
+		{Position: gmath.Vector3{-h, h, h}, Normal: gmath.Vector3{0, 0, 1}, UV: gmath.Vector2{0, 1}},
 
 		// Back face (-Z)
-		{Position: render_math.Vector3{h, -h, -h}, Normal: render_math.Vector3{0, 0, -1}, UV: render_math.Vector2{0, 0}},
-		{Position: render_math.Vector3{-h, -h, -h}, Normal: render_math.Vector3{0, 0, -1}, UV: render_math.Vector2{1, 0}},
-		{Position: render_math.Vector3{-h, h, -h}, Normal: render_math.Vector3{0, 0, -1}, UV: render_math.Vector2{1, 1}},
-		{Position: render_math.Vector3{h, h, -h}, Normal: render_math.Vector3{0, 0, -1}, UV: render_math.Vector2{0, 1}},
+		{Position: gmath.Vector3{h, -h, -h}, Normal: gmath.Vector3{0, 0, -1}, UV: gmath.Vector2{0, 0}},
+		{Position: gmath.Vector3{-h, -h, -h}, Normal: gmath.Vector3{0, 0, -1}, UV: gmath.Vector2{1, 0}},
+		{Position: gmath.Vector3{-h, h, -h}, Normal: gmath.Vector3{0, 0, -1}, UV: gmath.Vector2{1, 1}},
+		{Position: gmath.Vector3{h, h, -h}, Normal: gmath.Vector3{0, 0, -1}, UV: gmath.Vector2{0, 1}},
 
 		// Left face (-X)
-		{Position: render_math.Vector3{-h, -h, -h}, Normal: render_math.Vector3{-1, 0, 0}, UV: render_math.Vector2{0, 0}},
-		{Position: render_math.Vector3{-h, -h, h}, Normal: render_math.Vector3{-1, 0, 0}, UV: render_math.Vector2{1, 0}},
-		{Position: render_math.Vector3{-h, h, h}, Normal: render_math.Vector3{-1, 0, 0}, UV: render_math.Vector2{1, 1}},
-		{Position: render_math.Vector3{-h, h, -h}, Normal: render_math.Vector3{-1, 0, 0}, UV: render_math.Vector2{0, 1}},
+		{Position: gmath.Vector3{-h, -h, -h}, Normal: gmath.Vector3{-1, 0, 0}, UV: gmath.Vector2{0, 0}},
+		{Position: gmath.Vector3{-h, -h, h}, Normal: gmath.Vector3{-1, 0, 0}, UV: gmath.Vector2{1, 0}},
+		{Position: gmath.Vector3{-h, h, h}, Normal: gmath.Vector3{-1, 0, 0}, UV: gmath.Vector2{1, 1}},
+		{Position: gmath.Vector3{-h, h, -h}, Normal: gmath.Vector3{-1, 0, 0}, UV: gmath.Vector2{0, 1}},
 
 		// Right face (+X)
-		{Position: render_math.Vector3{h, -h, h}, Normal: render_math.Vector3{1, 0, 0}, UV: render_math.Vector2{0, 0}},
-		{Position: render_math.Vector3{h, -h, -h}, Normal: render_math.Vector3{1, 0, 0}, UV: render_math.Vector2{1, 0}},
-		{Position: render_math.Vector3{h, h, -h}, Normal: render_math.Vector3{1, 0, 0}, UV: render_math.Vector2{1, 1}},
-		{Position: render_math.Vector3{h, h, h}, Normal: render_math.Vector3{1, 0, 0}, UV: render_math.Vector2{0, 1}},
+		{Position: gmath.Vector3{h, -h, h}, Normal: gmath.Vector3{1, 0, 0}, UV: gmath.Vector2{0, 0}},
+		{Position: gmath.Vector3{h, -h, -h}, Normal: gmath.Vector3{1, 0, 0}, UV: gmath.Vector2{1, 0}},
+		{Position: gmath.Vector3{h, h, -h}, Normal: gmath.Vector3{1, 0, 0}, UV: gmath.Vector2{1, 1}},
+		{Position: gmath.Vector3{h, h, h}, Normal: gmath.Vector3{1, 0, 0}, UV: gmath.Vector2{0, 1}},
 
 		// Top face (+Y)
-		{Position: render_math.Vector3{-h, h, h}, Normal: render_math.Vector3{0, 1, 0}, UV: render_math.Vector2{0, 0}},
-		{Position: render_math.Vector3{h, h, h}, Normal: render_math.Vector3{0, 1, 0}, UV: render_math.Vector2{1, 0}},
-		{Position: render_math.Vector3{h, h, -h}, Normal: render_math.Vector3{0, 1, 0}, UV: render_math.Vector2{1, 1}},
-		{Position: render_math.Vector3{-h, h, -h}, Normal: render_math.Vector3{0, 1, 0}, UV: render_math.Vector2{0, 1}},
+		{Position: gmath.Vector3{-h, h, h}, Normal: gmath.Vector3{0, 1, 0}, UV: gmath.Vector2{0, 0}},
+		{Position: gmath.Vector3{h, h, h}, Normal: gmath.Vector3{0, 1, 0}, UV: gmath.Vector2{1, 0}},
+		{Position: gmath.Vector3{h, h, -h}, Normal: gmath.Vector3{0, 1, 0}, UV: gmath.Vector2{1, 1}},
+		{Position: gmath.Vector3{-h, h, -h}, Normal: gmath.Vector3{0, 1, 0}, UV: gmath.Vector2{0, 1}},
 
 		// Bottom face (-Y)
-		{Position: render_math.Vector3{-h, -h, -h}, Normal: render_math.Vector3{0, -1, 0}, UV: render_math.Vector2{0, 0}},
-		{Position: render_math.Vector3{h, -h, -h}, Normal: render_math.Vector3{0, -1, 0}, UV: render_math.Vector2{1, 0}},
-		{Position: render_math.Vector3{h, -h, h}, Normal: render_math.Vector3{0, -1, 0}, UV: render_math.Vector2{1, 1}},
-		{Position: render_math.Vector3{-h, -h, h}, Normal: render_math.Vector3{0, -1, 0}, UV: render_math.Vector2{0, 1}},
+		{Position: gmath.Vector3{-h, -h, -h}, Normal: gmath.Vector3{0, -1, 0}, UV: gmath.Vector2{0, 0}},
+		{Position: gmath.Vector3{h, -h, -h}, Normal: gmath.Vector3{0, -1, 0}, UV: gmath.Vector2{1, 0}},
+		{Position: gmath.Vector3{h, -h, h}, Normal: gmath.Vector3{0, -1, 0}, UV: gmath.Vector2{1, 1}},
+		{Position: gmath.Vector3{-h, -h, h}, Normal: gmath.Vector3{0, -1, 0}, UV: gmath.Vector2{0, 1}},
 	}
 
 	// 6 faces × 2 triangles each

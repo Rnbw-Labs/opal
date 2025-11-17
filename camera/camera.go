@@ -1,7 +1,7 @@
 package camera
 
 import (
-	render_math "github.com/rnbw-labs/opal/render_math"
+	render_math "github.com/rnbw-labs/opal/gmath"
 	"math"
 )
 

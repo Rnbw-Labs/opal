@@ -3,7 +3,7 @@ package gpu
 import (
 	"fmt"
 	"github.com/go-gl/gl/v4.6-core/gl"
-	"github.com/rnbw-labs/opal/render_math"
+	"github.com/rnbw-labs/opal/gmath"
 )
 
 type Shader struct {
@@ -14,12 +14,12 @@ func (s Shader) Use() {
 	gl.UseProgram(s.ID)
 }
 
-func (s Shader) SetMatrix4(name string, mat render_math.Matrix4) {
+func (s Shader) SetMatrix4(name string, mat gmath.Matrix4) {
 	loc := gl.GetUniformLocation(s.ID, gl.Str(name+"\x00"))
 	gl.UniformMatrix4fv(loc, 1, false, &mat.M[0])
 }
 
-func (s Shader) SetVector3(name string, v render_math.Vector3) {
+func (s Shader) SetVector3(name string, v gmath.Vector3) {
 	loc := gl.GetUniformLocation(s.ID, gl.Str(name+"\x00"))
 	gl.Uniform3f(loc, v.X, v.Y, v.Z)
 }

@@ -1,4 +1,4 @@
-package render_math
+package gmath
 
 import "math"
 
